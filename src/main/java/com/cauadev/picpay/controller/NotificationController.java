@@ -7,37 +7,34 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import com.cauadev.picpay.model.Notification;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.cauadev.picpay.model.Status;
 
 @RestController
 public class NotificationController {
 	
 	@Autowired
 	RestTemplate restTemplate;
-	private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 	
-	@PostMapping
-	public ResponseEntity<?> notificationPayment(@RequestBody Notification notification){
+	@PostMapping("/status")
+	public ResponseEntity<?> notificationPayment(@RequestParam(name = "ref") String ref){
 		
-		if(notification.getAuthorizationId() != null) {
+		if(ref != null) {
 			
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(MediaType.APPLICATION_JSON);
-			headers.add("x-picpay-token", "YOUR_TOKEN");
+			headers.add("x-picpay-token", "3eaed159-079e-4885-9955-35a99175178c");
 			HttpEntity<?> entity = new HttpEntity<>(headers);
 			
-			ResponseEntity<String> res = restTemplate.exchange("https://appws.picpay.com/ecommerce/public/payments/"+notification.getReferenceId()+"/status"
+			 ResponseEntity<Status> res = restTemplate.exchange("https://appws.picpay.com/ecommerce/public/payments/"+ref+"/status"
 					, HttpMethod.GET
 					, entity
-					, String.class);
+					, Status.class);
 			
-			return ResponseEntity.ok(gson.toJson(res.getBody()));
+			return ResponseEntity.ok(res.getBody());
 			
 		}
 		

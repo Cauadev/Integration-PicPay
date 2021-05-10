@@ -8,9 +8,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.web.client.RestTemplate;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,15 +17,13 @@ import lombok.NoArgsConstructor;
 @Data
 public class PicPay {
 	
-	private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
-	
-	private String urlCallBack = "http://localhost:8085/notification";
+	private String urlCallBack = "http://localhost:8085/status";
 	
 	private String urlReturn = "http://localhost:8085/user";
 	
-	private String x_picpay_token = "YOUR_TOKEN";
+	private String x_picpay_token = "3eaed159-079e-4885-9955-35a99175178c";
 	
-	private String x_seller_token = "YOUR_TOKEN";
+	private String x_seller_token = "2c08c8d5-c721-4f9c-b331-3194701542fc";
 	
 	
 	public Payment requestPayment(Product product, Cliente cliente){

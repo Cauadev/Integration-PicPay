@@ -1,5 +1,7 @@
 package com.cauadev.picpay.model;
 
+import java.time.LocalDate;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,9 +9,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Notification {
+public class Status {  
 	
 	private String referenceId;
-	private String authorizationId;
+	private String status;
+	private LocalDate createdAt;
+	private LocalDate updatedAt;
+	private Double value;
 
 }

@@ -27,7 +27,7 @@ public class PaymentController {
 		product.setNome("Vip Beta");
 		product.setValor(3.0);
 		
-		cliente.setCpf("16143248552");
+		cliente.setCpf("11341228452");
 		cliente.setEmail("cauadev@gmail.com");
 		cliente.setNome("Cauã");
 		cliente.setSobrenome("Da Silva Nunes");
