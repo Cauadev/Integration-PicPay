@@ -21,9 +21,9 @@ public class PicPay {
 	
 	private String urlReturn = "http://localhost:8085/user";
 	
-	private String x_picpay_token = "3eaed159-079e-4885-9955-35a99175178c";
+	private String x_picpay_token = "YOUR_TOKEN";
 	
-	private String x_seller_token = "2c08c8d5-c721-4f9c-b331-3194701542fc";
+	private String x_seller_token = "YOUR_TOKEN";
 	
 	
 	public Payment requestPayment(Product product, Cliente cliente){
