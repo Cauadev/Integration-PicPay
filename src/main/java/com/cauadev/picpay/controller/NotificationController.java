@@ -26,7 +26,7 @@ public class NotificationController {
 			
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(MediaType.APPLICATION_JSON);
-			headers.add("x-picpay-token", "3eaed159-079e-4885-9955-35a99175178c");
+			headers.add("x-picpay-token", "TOKEN");
 			HttpEntity<?> entity = new HttpEntity<>(headers);
 			
 			 ResponseEntity<Status> res = restTemplate.exchange("https://appws.picpay.com/ecommerce/public/payments/"+ref+"/status"
